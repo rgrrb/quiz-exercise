@@ -32,9 +32,12 @@ class MainActivity : ComponentActivity() {
 
                     val navController = rememberNavController()
 
+                    var userName: String? = ""
+                    var points: Int? = 0
+
                     NavHost(
                         navController = navController,
-                        startDestination = "result"
+                        startDestination = "login"
                     ){
                         composable(route = "login",
                             exitTransition = {
@@ -42,21 +45,27 @@ class MainActivity : ComponentActivity() {
                                     towards = AnimatedContentTransitionScope.SlideDirection.Up,
                                     animationSpec = tween(500)
                                 ) + fadeOut(animationSpec = tween(1000))
-                            }) { StartScreen(modifier = Modifier.padding(innerPadding), navController = navController) }
-                        composable(route = "quizGame",
+                            }) {
+                        StartScreen(modifier = Modifier.padding(innerPadding), navController = navController) }
+                        composable(route = "quizGame/{nome}",
                             exitTransition = {
                                 slideOutOfContainer(
                                     towards = AnimatedContentTransitionScope.SlideDirection.Up,
                                     animationSpec = tween(500)
                                 ) + fadeOut(animationSpec = tween(1000))
-                            }) { QuizScreen(navController = navController) }
-                        composable(route = "result",
+                            }) { backStackEntry ->
+                            userName = backStackEntry.arguments?.getString("nome")
+                            QuizScreen(navController = navController, userName = userName) }
+                        composable(route = "result/{nome}/{points}",
                             exitTransition = {
                                 slideOutOfContainer(
                                     towards = AnimatedContentTransitionScope.SlideDirection.Up,
                                     animationSpec = tween(500)
                                 ) + fadeOut(animationSpec = tween(1000))
-                            }) { ResultScreen(navController = navController) }
+                            }) { backStackEntry ->
+                            userName = backStackEntry.arguments?.getString("nome")
+                            points = backStackEntry.arguments?.getInt("points")
+                            ResultScreen(navController = navController, modifier = Modifier, name = userName, points = points) }
                     }
 
                 }

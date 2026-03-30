@@ -1,4 +1,4 @@
-package com.example.quiz-exercise.screens
+package com.example.quiz_exercise.screens
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

@@ -81,7 +81,7 @@ fun StartScreen(modifier: Modifier = Modifier, navController: NavController) {
 
                 Button(
                     onClick = {
-                        navController.navigate("quizGame")
+                        navController.navigate("quizGame/$text")
                     },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color.White

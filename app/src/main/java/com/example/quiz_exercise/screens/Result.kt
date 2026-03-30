@@ -1,11 +1,13 @@
 package com.example.quiz_exercise.screens
 
+import android.R.attr.name
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -17,7 +19,7 @@ import androidx.navigation.NavController
 import com.example.quiz_exercise.R
 
 @Composable
-fun ResultScreen(modifier: Modifier = Modifier, navController: NavController) {
+fun ResultScreen(modifier: Modifier = Modifier, navController: NavController, name: String?, points: Int?) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -30,6 +32,12 @@ fun ResultScreen(modifier: Modifier = Modifier, navController: NavController) {
             "Quiz Logo",
             modifier = Modifier.size(120.dp)
         )
+
+        Text(
+            text = "parabéns! $name, você acertou $points questões..",
+
+        )
     }
+
 }
 
