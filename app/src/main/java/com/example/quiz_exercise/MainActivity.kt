@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
 
                     var userName: String? = ""
-                    var points: Int? = 0
+
 
                     NavHost(
                         navController = navController,
@@ -62,9 +62,9 @@ class MainActivity : ComponentActivity() {
                                     towards = AnimatedContentTransitionScope.SlideDirection.Up,
                                     animationSpec = tween(500)
                                 ) + fadeOut(animationSpec = tween(1000))
-                            }) { backStackEntry ->
-                            userName = backStackEntry.arguments?.getString("nome")
-                            points = backStackEntry.arguments?.getInt("points")
+                            }) {
+                            userName = it.arguments?.getString("nome")
+                            val points = it.arguments?.getString("points")
                             ResultScreen(navController = navController, modifier = Modifier, name = userName, points = points) }
                     }
 

@@ -148,8 +148,9 @@ fun QuizScreen(modifier: Modifier = Modifier, navController: NavController, user
                             QuestionBtn(
                                 modifier = Modifier.clickable {
 
-                                    if (resposta.correta){ points += 1
-                                    println(points++)
+                                    if (resposta.correta) {
+                                        points += 1
+                                    }
                                     if (questionNumber < perguntas.size - 1) {
                                         questionNumber++
                                     } else {

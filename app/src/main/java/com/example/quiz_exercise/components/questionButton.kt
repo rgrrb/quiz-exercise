@@ -38,8 +38,6 @@ fun QuestionBtn(modifier: Modifier, answer: String, isCorrect: Boolean) {
             } else {
                 answerColor = Color.Red
             }
-
-
         },
         colors = ButtonDefaults.buttonColors(
             containerColor = answerColor
@@ -54,7 +52,7 @@ fun QuestionBtn(modifier: Modifier, answer: String, isCorrect: Boolean) {
             answer,
             color = Color.Black,
             fontSize = 23.sp,
-            modifier = Modifier.fillMaxWidth(),
+            modifier = modifier.fillMaxWidth(),
             textAlign = TextAlign.Start,
             fontWeight = FontWeight.Normal
         )
